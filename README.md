@@ -8,4 +8,4 @@ Multithreaded messaging application without any security whatsoever
     3) Encrypt traffic
     4) Improve chat printing (functionality, colors, saved messages)
     5) Make chatrooms
-    6) Move it all into a docker container
+ 
