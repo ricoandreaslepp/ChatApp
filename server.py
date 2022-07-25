@@ -140,7 +140,7 @@ class Server:
             new_client = Client(conn, addr, name)
             new_client.start()
 
-            log.info(f" {new_client.name} connected from {new_client.addr}.")
+            log.info(f"{new_client.name} connected from {new_client.addr}.")
 
             self.add_connection(new_client)
             print(self.connections())
