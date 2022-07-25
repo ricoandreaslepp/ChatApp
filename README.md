@@ -2,6 +2,8 @@
 
 Multithreaded messaging application without any security whatsoever
 
+![Example](server_running.png)
+
 # Usage
 
 For an interactive server logging session run:
@@ -28,4 +30,4 @@ sudo docker container rm chat_app_container
     3) Encrypt traffic
     4) Improve chat printing (functionality, colors, saved messages)
     5) Make chatrooms
- 
+    6) Fix container stop and rerun
