@@ -23,3 +23,4 @@ CTRl-C to kill the server
     3) Encrypt traffic
     4) Improve chat printing (functionality, colors, saved messages)
     5) Make chatrooms
+    6) Better docker image management
