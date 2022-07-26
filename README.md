@@ -15,14 +15,7 @@ Then client to connect with:
 ```bash
 nc localhost 8080
 ```
-CTRl-C to kill the server, container will remain stopped if you check with
-```bash
-sudo docker container ls -a
-```
-Can be removed with
-```bash
-sudo docker container rm chat_app_container
-```
+CTRl-C to kill the server
 
 # To-Do
     1) Login system (username, password hash, better ID method)
@@ -30,4 +23,3 @@ sudo docker container rm chat_app_container
     3) Encrypt traffic
     4) Improve chat printing (functionality, colors, saved messages)
     5) Make chatrooms
-    6) Fix container stop and rerun
