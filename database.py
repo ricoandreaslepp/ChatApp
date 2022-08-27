@@ -5,7 +5,7 @@ import getpass
 import os
 
 class Database:
-    
+
     def __init__(self):
         self.conn = sqlite3.connect("mydatabase.db")
         self.cursor = self.conn.cursor()
