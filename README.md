@@ -2,7 +2,7 @@
 
 Multithreaded messaging application without any security whatsoever
 
-![Example](server_running.png)
+![Example](images/server_running.png)
 
 # Usage
 

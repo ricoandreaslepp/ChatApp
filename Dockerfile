@@ -1,8 +1,5 @@
-FROM ubuntu:latest
+FROM python:3.8-slim-buster
 WORKDIR /srv
 COPY . .
-RUN apt-get update
-RUN apt-get install -y python3
 EXPOSE 5000
-CMD ["python3", "server.py"]
-
+CMD ["python3", "src/server.py"]
