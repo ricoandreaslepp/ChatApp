@@ -8,8 +8,7 @@ Multithreaded messaging application without any security whatsoever
 
 For an interactive server logging session run:
 ```bash
-chmod +x run.sh
-sudo ./run.sh
+docker-compose up --build
 ```
 Then client to connect with:
 ```bash
