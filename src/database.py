@@ -7,7 +7,7 @@ import os
 class Database:
 
     def __init__(self):
-        self.conn = sqlite3.connect("mydatabase.db")
+        self.conn = sqlite3.connect("database.db")
         self.cursor = self.conn.cursor()
 
         try:
@@ -29,24 +29,23 @@ class Database:
                             """)
 
     def __reset_database(self):
-        self.cursor.execute("""DELETE FROM creds""") # keeps the format
+        self.cursor.execute("DELETE FROM creds") # keeps the format
         self.conn.commit()
 
-    def __hash_function(self, pwd, salt=None):
+    def __hash_function(self, str: pwd, str: alt=None) -> str:
         if not salt:
             salt = binascii.b2a_hex(os.urandom(32))
             return salt, hashlib.sha256(pwd.encode("UTF-8")+salt).hexdigest()
 
         return hashlib.sha256((pwd+salt).encode("UTF-8")).hexdigest()
 
-    def __add_user(self, name, pwd):
+    def __add_user(self, str: name, str: pwd):
         salt, pwd_hash = self.__hash_function(pwd)
-
         self.cursor.execute("INSERT INTO creds VALUES ({!r}, {!r}, {!r})".format(name, pwd_hash, salt.decode()))
         self.conn.commit()
 
 
-    def check_creds(self, user_name, user_pwd):
+    def check_creds(self, str: user_name, str: user_pwd):
         # needs an error check
         self.cursor.execute("""SELECT username, password_hash, salt 
                                 FROM creds WHERE username = {!r}""".format(user_name))
@@ -59,7 +58,7 @@ class Database:
 
 
     def show_table(self):
-        for row in self.cursor.execute("""SELECT * FROM creds """):
+        for row in self.cursor.execute("SELECT * FROM creds"):
             print(row)
 
 if __name__=='__main__':

@@ -3,9 +3,9 @@
 # import colorama
 
 from threading import Thread
-from config import HOST, PORT
 from logger import log
 import socket
+import os
 
 class Client(Thread):
 
@@ -69,6 +69,8 @@ class Server:
 
     def __init__(self):
         self.IP = self.get_ip()
+        self.HOST = os.getenv("HOST", default="0.0.0.0")
+        self.PORT = int(os.getenv("PORT", default=5000))
         self.run_server()
 
     def __del__(self):
@@ -100,7 +102,7 @@ class Server:
 
     # try to get LAN ip from router
     @staticmethod
-    def get_ip():
+    def get_ip() -> str:
         s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         s.connect(('10.254.254.254', 1))
         ip = s.getsockname()[0]
@@ -109,7 +111,7 @@ class Server:
 
     # needs some functionality
     # currently just a template
-    def login_loop(self, conn):
+    def login_loop(self, conn) -> str:
         conn.send("login: ".encode())
         name = conn.recv(1024).decode().strip()
         return name
@@ -125,8 +127,8 @@ class Server:
 
     def server_loop(self):
         server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        server.bind((HOST, PORT))
-        log.info(f"Server with IP {self.IP} on port {PORT}...")
+        server.bind((self.HOST, self.PORT))
+        log.info(f"Server with IP {self.IP} on port {self.PORT}...")
 
         server.listen(1000)
         log.info(f"Server listening for connections...")

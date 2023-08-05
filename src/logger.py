@@ -1,6 +1,5 @@
 import logging
-import config
-
+import os
 
 # add custom methods
 class BetterLogging(logging.Logger):
@@ -17,7 +16,7 @@ class BetterLogging(logging.Logger):
 
 # basic config
 log = BetterLogging("test")
-log.disabled = config.LOGGING_DISABLED
+#log.disabled = os.getenv("LOGGING_DISABLED")
 log.setLevel(0)
 
 # handler
