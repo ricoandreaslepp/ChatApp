@@ -2,4 +2,5 @@ FROM python:3.8-slim-buster
 WORKDIR /srv
 COPY . .
 EXPOSE 5000
-CMD ["python3", "src/server.py"]
+ENV HOST=0.0.0.0 PORT=5000 LOGGING_DISABLED=False
+ENTRYPOINT ["python3", "src/server.py"]
