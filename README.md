@@ -1,6 +1,6 @@
 # Messaging application
 
-Multithreaded messaging application without any security whatsoever
+A multithreaded dockerized Python messaging application without any security whatsoever.
 
 ![Example](images/server_running.png)
 
